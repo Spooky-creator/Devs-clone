@@ -1,55 +1,69 @@
 /* src/components/Features.css */
+.feature-cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+  animation-delay: 1s;
+}
 
-.features {
-    padding: 60px 20px;
-    background-color: #f9f9f9;
-    text-align: center;
+.card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+.card:nth-child(1) {
+  animation-delay: 1.2s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 1.4s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 1.6s;
+}
+
+.card h3 {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+}
+
+.card p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.05); /* Zoom and lift effect */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .features h2 {
-    font-size: 2.5em;
-    margin-bottom: 40px;
-  }
-  
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
   .feature-cards {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
+    flex-direction: column;
+    align-items: center;
   }
-  
+
   .card {
-    background-color: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 80%;
+    margin-bottom: 30px;
   }
-  
-  .card h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px;
-  }
-  
-  .card p {
-    font-size: 1.1em;
-    color: #555;
-  }
-  
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .feature-cards {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .card {
-      width: 80%;
-      margin-bottom: 30px;
-    }
-  }
+}

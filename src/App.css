@@ -1,0 +1,92 @@
+/* src/App.css */
+
+/* Global reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fafafa;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    transition: all 0.3s ease; /* Smooth transition for all elements */
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Add container for centralized layout */
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Headings */
+  h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Button hover effects */
+  button, .cta-btn {
+    transition: transform 0.2s ease, background-color 0.3s ease;
+  }
+  
+  button:hover, .cta-btn:hover {
+    transform: translateY(-5px); /* Lift effect */
+    background-color: #e0a000;
+  }
+  
+  /* Social link hover effects */
+  .social-links a:hover {
+    color: #f8b400;
+    transform: translateY(-3px); /* Lift effect */
+  }
+  
+  /* Smooth Fade In on Page Load */
+  body {
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Slide-up animation */
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-up {
+    animation: slideUp 1s ease-out forwards;
+  }
+  
+  /* Slide-up on scroll */
+  @keyframes slideUpOnScroll {
+    0% {
+      opacity: 0;
+      transform: translateY(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

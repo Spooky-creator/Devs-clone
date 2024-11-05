@@ -1,14 +1,31 @@
-// src/components/Hero.js
-import React from 'react';
-import './Hero.css'; // Optional: add your styles
+import React, { useState, useEffect } from 'react';
+import './Hero.css';
 
 const Hero = () => {
+  const [inView, setInView] = useState(false);
+
+  const handleScroll = () => {
+    const heroElement = document.getElementById('hero');
+    const rect = heroElement.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setInView(true);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="hero">
+    <section
+      id="hero"
+      className={`hero ${inView ? 'slide-up' : ''}`}  // Fixed className syntax
+    >
       <div className="hero-content">
         <h1>Welcome to DevsRec</h1>
-        <p>Your go-to platform for developers!</p>
-        <a href="#features" className="cta-btn">Explore Features</a>
+        <p>Join the best developers' community!</p>
+        <a href="#features" className="cta-btn">Get Started</a>
       </div>
     </section>
   );
